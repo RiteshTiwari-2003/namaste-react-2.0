@@ -1,0 +1,77 @@
+########  what is typescript why we use typescript in project , why it is beneifical ?
+
+1. what is the typescript?
+
+it is the super set of javascript , developed by microsoft that add statiuc typing in javascript.it allow developer o write most and robust , maintainable and scalable 
+code by catching error at compile time instead of runtime , typescript code is gets compiled into a plain javascript code,which can run in any envoirment that support javascript (browser , nodejs)
+
+##### why use typescript in project ?
+
+1. static typing :
+
+typescript introduce type (string , number , boolean ) that are not natively available  at javascript 
+this help in catch error during compile time before run time like type error.
+
+example: let age: number=20;
+age="twenty-five";
+
+2. improve developer experience :
+typescript provide autocomplete , intellisence and better error detection in your code editor.
+this leads to faster development and fewer mistakes.
+
+3. better refectoring :
+static typing makes it easier to refector code safely because the compiler can insure correctness
+
+4. documentation :
+types act as a documentation for youe code, you can understand what a function or component expects without diving into your code 
+
+function add(a:number,b:number):number{
+    return a+b;
+
+}
+
+5. support model javascript feature :
+typescript support all the modern javascript feature (ES6/ES2020) and provide additional feature  like interfaces and decorator and generics 
+
+6. integration with large project: 
+typescript is particulerly use for large scale application where maintaining and scaling javascript code become difficult.
+
+7. compatibility with javascript :
+you can start using typescript in small portion of your project, since it is fully compatible javascript,all .js file are valid typescript file
+
+
+#  why replace .js and .jsx files with .ts and .tsx in react?
+
+1. type safety :
+.tsx file add static typing to your react component , ensuring that props states and context are used correctly.
+
+example of typed react component :
+interface ButtonProps{
+    label: string;
+    onClick:()=>void;
+}
+const Button: React.FC<ButtonProps>=({label,onClick})=>(
+    <button onClick={onClick}>{label}</button>
+)
+
+#### how to setup typescript in project?
+
+1. Using create react app:
+npx create-react-app my-app --template typescript
+
+2. migrating an existing react project:
+1. install typescript and type definition for react:
+npm install --save-dev typescript @types/react @types/react-dom
+
+2. rename .js file to .ts file and .jsx to .tsx file 
+
+3. create a tsconfig.json file:
+npx tsc --init
+
+
+##### using vite :
+
+npm create vite@latest my-app --template react-ts
+cd my-app
+npm install 
+npm run dev
