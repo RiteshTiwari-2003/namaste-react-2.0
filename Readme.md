@@ -133,3 +133,7 @@ Ant Design	Pre-built React components with a focus on enterprise-grade apps.
 Chakra UI	Simple, accessible, and flexible React component library.
 Bootstrap (React)	Easy-to-use framework with a grid system and common UI components.
 Styled Components	CSS-in-JS for creating custom, styled components in React.
+
+ for installation of react there is need of installation of node 
+
+ 
