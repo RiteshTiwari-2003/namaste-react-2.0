@@ -136,4 +136,19 @@ Styled Components	CSS-in-JS for creating custom, styled components in React.
 
  for installation of react there is need of installation of node 
 
- 
+ before installation of node first understand what is node js?
+ node js is a cross platform , open source javascript program that can run on window , linux and unix and macos 
+ node js run on v8 javascript engine and execute javascript code outside the web browser .
+
+ # how to download node js
+ search nodejs download on browser
+ you can visit https://nodejs.org/en/download/
+
+ in download page you go to navbar prebuild installer and select v20.15.1 (lts) long term support version for node js on window
+ now when installation is finished then open command prompt and put command node --version , and you can also select node js command prompt in search and run command node --version
+
+ we open vscode and new window and select new file , select text file select language js and write console.log("ritesh tiwari"); save and  go in download in file explore and make a folder rough and put file name text.js and let me run termina open hoga nad run node "c:/home/download/roght"
+ and put enter
+ then output come
+
+ and when you write node text.js in terminal also then output come but this node text.js you must only put when you are in that folder path in terminal
