@@ -152,3 +152,51 @@ Styled Components	CSS-in-JS for creating custom, styled components in React.
  then output come
 
  and when you write node text.js in terminal also then output come but this node text.js you must only put when you are in that folder path in terminal
+
+
+ #### react js :
+ React js is ui library that allow developers to build small self contained ui component , 
+ which can be used to build user interface 
+ react allow developer to write declarative code in javascript to efficiantly assemble the user interface .
+ react is created and maintained by facebook and introduced in 2013 
+
+ ### why use react?
+ although we can use plain  html and javascript to build ui , react offer many benifit over them 
+ 1. performance : react js is more performant than plain javascript dom manipulation because 
+ it only update those nodes that need to update 
+
+ 2. declarativ e: react js allow developer to write declrartive syntex to describe our user interface which is very easy to read , understand and write .
+
+ 3. component based: react allow us to describe our interface into self contained component that can be shared  and reused in other application .
+ 4. data binding : react js allow us to combine data with mark up and it take care of keeping the ui in sync with the chnage made in the data 
+
+ ### what is dom?
+ dom stnads for document object model 
+ dom stnads for document obejct model it is a tree like structure that is used to represent html document .
+ dom is the standard interface for interacting with web page using programming or scripting language 
+
+ make two file index.html and index.js 
+ index.html 
+ <!DOCTYPE html>
+ <html>
+ <head></head>
+ <body>
+ <h1>Todo List</h1>
+ <button id="add_button">ADD</button>
+ <ul id="List"></ul>
+ <script src="script.js"></script></body>
+ script.js
+const addButton=document.getElementById("add_button");
+const list=document.getElementById("List");
+let index=0;
+addButton.addEventListner('click',function(){
+    let element=document.createElement('li');
+    element.textContent="Task #"+index++;
+    list.appendChild(element);
+})
+
+what is react dom?
+react can be used to build application for multiple platform such as mobile and even for virtual reality (vr)
+to use react in web appliucation we need it to be able to access and manipulate dom for that we use react dom 
+
+react dom is package that contains dom specific method used by react to enable itself to interact with the dom 
