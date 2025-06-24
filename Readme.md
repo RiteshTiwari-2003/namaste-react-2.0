@@ -275,3 +275,30 @@ ReactDOM.render(greeting(),document.getElementById("main"));
 
 ### jsx 
 under the hood react uses the createElement method to create new dom nodes to attached to a node but it is very difficultto use espacially when we have component nested into each other this can make our code unreadable to solve this in react, we use a spacial syntex called as jsx which is ultimatly compiled to createElement call but it makes our code more easy for read .
+
+
+#### create component using jsx :
+<!DOCTYPE html>
+<html>
+<head>
+<title>React component using jsx</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js" ></script>
+<script type='text/babel'>
+    function greeting(){
+        return <h1>hello, world!</h1>
+    }
+    ReactDOM.render(<Greeting/>,document.getElementById("main"));
+    </script>
+
+</body>
+</html>
+
+#### props 
+props stand for properties and they are arguments passed passed to a component by a parent component for it to use .
+props are read only and should not be modified by a comonent by on its own they can only be modified by parent class passing those props 
+a change in props from the parent will lead to child component being updated and re-render to the dom 
