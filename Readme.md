@@ -200,3 +200,51 @@ react can be used to build application for multiple platform such as mobile and 
 to use react in web appliucation we need it to be able to access and manipulate dom for that we use react dom 
 
 react dom is package that contains dom specific method used by react to enable itself to interact with the dom 
+
+react js recommend using es6 feature to create more readable and consice code .
+a few of the most importent es6 feature was :
+1. variable declaration : in es6, we can use let or const to define variables and constant 
+2. arrow function : arrow function are used to write a annonymous function in a consice way without using a function keyword 
+3. classes : in javascript we can now create a cass using the class keyword , earlier we had to create a function and then create an object out of it 
+4. destructuring : allow us to get values out of the array or an object and into variables using a lot less code 
+classess :
+
+function App(){
+    console.log("constructor");
+}
+
+App.prototype.sayHello=function(){
+    console.log("Hello"0);
+}
+const obj=new App();
+obj.sayHello();
+or in above we can write also like this 
+class App{
+    constructor(){
+        console.log("Constructor");
+    }
+    sayHello(){
+        console.log("Hello");
+    }
+}
+const obj=new App();
+obj.sayHello();
+
+desturcturing 
+
+### react js advantage 
+1. scalabe : react js work well with all size of application as it is used in some of biggest application such as facebook instagram etc .
+2. compositional ui :using react js , we can compose our ui using small reusable component that can be modified or even replaced if needed 
+3. portability ; portability is the one of major advantage react component are quite portable and can be moved from one project to another as long as both project using reACT 
+
+4.performant ; react js is more performant instead of real browser dom react js uses a vertual dom thats give it a massive performance boost when it come to dom manipuation 
+
+#### react js has few disadvantage 
+1. learning curve: react js has a steep learning curve as it require a big shift in the mental model of how we think about building user interface 
+
+2. documentation :react js rolls out updates and new feature at a fast rate due to which the documentation might not always present or be good enough 
+3. jsx : to work with react we need to learn how to use jsx which can be a bit difficult as it makes us use html like syntex in javascript file 
+4. state management : depending upon how our application is structured managing the state and sharing it among component can be very difficult 
+
+
+### vertual dom in react 
