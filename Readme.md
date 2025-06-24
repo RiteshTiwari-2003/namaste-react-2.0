@@ -248,3 +248,30 @@ desturcturing
 
 
 ### vertual dom in react 
+in react js virtua dom is an ideal, or 'vertual',representation of ui that is kept in memory and synced with real dom 
+the vertual dom encapsulated in reactdom package so it can uses by user.
+react uses vertual dom to improve performance so that the real dom is updated only if needed this process of updating the real dom from 
+the virtual dom is called reconsiliation 
+
+1. hands on : creating react component without using jsx using plane javascript 
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML react</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin>
+<script src="https://unpkg.com/react@16/umd/react-dom.development.js" crossorigin>
+<script >
+function greeting(){
+    return React.createElement("h1",{},"Hello, World!");// where first parameter told about tag and second about attribute and third is inside content 
+}
+ReactDOM.render(greeting(),document.getElementById("main"));
+</script>
+</body>
+</html>
+
+### jsx 
+under the hood react uses the createElement method to create new dom nodes to attached to a node but it is very difficultto use espacially when we have component nested into each other this can make our code unreadable to solve this in react, we use a spacial syntex called as jsx which is ultimatly compiled to createElement call but it makes our code more easy for read .
