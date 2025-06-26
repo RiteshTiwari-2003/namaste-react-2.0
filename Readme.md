@@ -302,3 +302,30 @@ under the hood react uses the createElement method to create new dom nodes to at
 props stand for properties and they are arguments passed passed to a component by a parent component for it to use .
 props are read only and should not be modified by a comonent by on its own they can only be modified by parent class passing those props 
 a change in props from the parent will lead to child component being updated and re-render to the dom 
+
+#### deo props 
+<!DOCTYPE html>
+<html>
+<head>
+<title>props demo</titile>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="babel/text">
+    function Greeting(props){
+        return <h1>Hello, {props.name}!</h1>;
+    }
+    function Demo(){
+        return <div>
+            <Greeting name="Ritesh"/>
+            <Greeting name="AAkash"/>
+            <Greeting name="Shashwat"/>
+            </div>
+    }
+    ReactDOM.render(<Demo name="Ritesh"/>,document.getElementById("main"))
+    </script>
+</body>
+</html>
