@@ -334,3 +334,48 @@ a change in props from the parent will lead to child component being updated and
 state is similer to props but it is private and fully controlled by coponent 
 the state is used by componenent to determine what to display on screen and has to be managed by the component it self as other component do not havea access in the state 
 in react , component 's state should not be changed directly , it should be done only via specisl setter method because react keeps track of the state 
+
+### demo state 
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML React</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function Greeting(){
+        const [name,setName]=React.useState("JOhn");
+        return <h1> Hello, {name}</h1>
+    }
+    ReactDOM.render(<Greeting/>,document.getElementById("main"));
+</script>
+
+</body>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML React</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function getUserInfo(){
+        return Promise.resolve({name:"John",age:30});
+    }
+    function Greeting(){
+        const [name,setName]=React.useState("");
+        getUserInfo().then(user=>setName(user.name))
+        return <h1> Hello, {name}</h1>
+    }
+    ReactDOM.render(<Greeting/>,document.getElementById("main"));
+</script>
+
+</body>
