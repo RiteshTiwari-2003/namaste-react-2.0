@@ -329,3 +329,8 @@ a change in props from the parent will lead to child component being updated and
     </script>
 </body>
 </html>
+
+### state
+state is similer to props but it is private and fully controlled by coponent 
+the state is used by componenent to determine what to display on screen and has to be managed by the component it self as other component do not havea access in the state 
+in react , component 's state should not be changed directly , it should be done only via specisl setter method because react keeps track of the state 
