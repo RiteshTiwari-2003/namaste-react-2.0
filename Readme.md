@@ -379,3 +379,124 @@ in react , component 's state should not be changed directly , it should be done
 </script>
 
 </body>
+
+### lifecycle method :
+react manages the lifecycle of the component , task such as adding and removing a component from dom
+sometimes there will be task we wish to perfor during these lifecycle tasks such as thdy includes adding and removing event handlers , 
+fetching data etc 
+to allow developer execute code during lifecycle react provide them with lifecycle method which they can override 
+1. component did mount 
+2. component did update 
+3. coponent willunmount 
+1. component did mount: these lifecycle allow developer to execute code after a component is added to a dom , it is ideal for adding the fetched dATA to the dom nodes or adding event listner to the dom 
+2. component did update : 
+the lifecycle method allows developer to execute code after a component get updated which could be due to updating of props and state
+3. component will unmount :
+the lifecycle method allows developer to execute code before component is removed , it is ideal for removing event listener from the component to stop the memory leak 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>REAct html</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    class Greeting extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={name:"John"};
+
+        }
+        componentDidMount(){
+            console.log("component mount")
+        }
+        render(){
+            return <h1> Hello, {this.state.name}</h1>
+        }
+    }
+    ReactDOM.render(<Greeting/>,document.getElementById("main"))
+    </script>
+</body>
+</html>
+
+in react (espacially class component) lifecycle method are specil method that are invoked at different stages of component's life : mounting , updating , unmounting 
+below is the complete example showing all major react lifecycle method using a class component 
+
+import react from "react";
+class lifeCycleDeo extends react.Component {
+    constructor(props){
+        super(props);
+        this.state={count:0,
+        };
+        console.log("constructor");
+    }
+    //mounting call right before rendering 
+    static getDerivedStateFromProps(props,state){
+        console.log("Get derived state from props ");
+        return null;//no state change 
+    }
+    //Mounting call : after rendering 
+    componentDidMount(){
+        console.log("component did mount");
+    }
+    //updasting: called before rendering if props and state changers 
+    shouldComponentUdate(nextprops,nextstate){
+        console.log("should component update");
+        retunr true;
+    }
+    //updating : called before rendering and after shouldcomponent update
+    getSnapshotBeforeUpdate(prevprops,prevstate){
+        console.log("getSnapShot");
+        return null;
+    }
+    //updating: called after rendering 
+    componentDidUpdate(prevprops,prevState,snapshot){
+        console.log("component did update");
+    }
+    //unmounting :
+    componentWillUnmount(){
+        console.log("component will unmount");
+    }
+    //Error handling 
+    componentDidCatch(error,info){
+        console.log("component did catch",error,info);
+    }
+    //event handler to update state
+    increment=()=>{
+        this.setState({count:this.state.count+1});
+    };
+    render(){
+        console.log("render");
+        retrun(
+            <div>
+            <h1>Lifecycle method Demo</h1>
+            <p>Count: {this.state.count}</p>
+            <button onClick={this.inrement}>Increment</button>
+            </div>
+        );
+    }
+    }
+    export default LifeCycledemo;
+
+    LifeCyce phase summary
+    mounting (when component is being created )
+    1. constructor()
+    2. getDerivedStateFromProps()
+    3. render()
+    4. componentDidMount()
+
+    here is the exact update phase lifecycle 
+    1. getderiveStateFromprops()
+    2. shouldComponentUpdate()
+    3. render()
+    Getsnapshotbeforeupdate()  --caledd after render before dom update are commited 
+
+    5. react update the dom
+    6. component didupdate()
+
+    ##  purpose of getsanpshotbeforeupdate()
+    it is mainly used when you want to capture some information from the dom before it changes , so you can use this in componentdidupdate()
