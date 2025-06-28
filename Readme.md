@@ -571,3 +571,50 @@ in react , functional component are given preferance as they are less verbose an
 </script>
 </body>
 </html>
+
+## class vs functional component
+1. backword compatibility:
+class component have been supported since the beggening and are still supported in react 
+and functional component were always in supported in react but they could not hold any state untill react version 16.8
+
+2. state and props :
+in class component , for state we use setState and for props we use parameter passed in render method 
+in function component 
+we use the useState hooks function to create state, which when changes will cause the re render of component.
+
+3. life cycle method :
+in class component, we can just override lifecycle method like componentdidmount etc
+in function component we use the hook like useEffwctto define method of the component lifecycle 
+
+4. verbosity :
+class component are extreamly verbose , so many developers prefer using class component only 
+whem they are necessary 
+functiona component are really consice hence they are prefered over class component.
+
+### proptype:
+proptypes are allow us to define shape of props that our component are expecting 
+using proptypes we can define what is the data type of a particuler props if it is required and more
+proptype are valiudated by react automatically so all we have to do is define the shape and constraaints then react will throw an error to let us known whther the props that we passed are incorrect.
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>React html</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+<script type="text/babel">
+    function Greeting(props){
+    return <h1> Hello, {props.name}</h1>;
+    }
+    Greeting.propTypes={
+    name:propTypes.string.isRequired;
+    };
+    ReactDOM.render(<Greeting name="John"/>.document.getElementById("main"));
+    </script>
+
+    after adding proptype when in Greeting component you pass other data type instead of string like <Greeting name={5}/> or <Greeting name={true}/>  so it give error 
