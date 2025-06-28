@@ -547,4 +547,27 @@ return (<h1>{this.state.greeting},{this.props.name})}
 </body>
 </html>
 
+### functionaql component 
+in functinal component we crerate a function instead of class that return jsx to describe the mark up of component.
+functional component can take props as parameter and have the state to keep track of the data to be displayed 
+in react , functional component are given preferance as they are less verbose and more mentainable 
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>React html</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function Greeting(props){
+    const[greeting,setGreeting]=React.useState("Hello");
+    return <h1>{greeting}, {props.name}!</h1>
+    }
+    ReactDOM.render(<Greeting name="John"/>,document.getElementById("main"));
+</script>
+</body>
+</html>
