@@ -618,3 +618,24 @@ proptype are valiudated by react automatically so all we have to do is define th
     </script>
 
     after adding proptype when in Greeting component you pass other data type instead of string like <Greeting name={5}/> or <Greeting name={true}/>  so it give error 
+
+    class component have several issues with them 
+    1. constructor :
+    when using class component that use state we have to create constructor thats call super method with passed props
+
+    2. binding :
+    when using react class component we would have to bind our method using call to bind with this keyword passed as argument to the call .
+
+    3. sharing non visual logic :
+    when we had non visual logic we would have to use complicated pattern like higher order component and render props 
+    4. dublicate ifecycle logic :
+    many a time  when we override the lifecycle method we would have to dublicate code between different lifecycle method 
+
+### hooks
+what are the hooks ?
+hooks are react's solution to all the problem introduced by the class component in building react component 
+before hooks we canonly use functional component if we had no state or logic in our component 
+with hooks we can now create functional component with state and code as  lifecycle 
+as well as create our own hook to share non visual logic 
+
+at their core react hook are function provided by react to help it to know about apps internal state and lifecycle which can be used by functional component 
