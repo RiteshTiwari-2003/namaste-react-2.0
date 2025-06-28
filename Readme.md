@@ -1,4 +1,4 @@
-# lets first understand what is react ?
+s# lets first understand what is react ?
 
 react is a javascript library for building user interface , it is developed and maintained by facebook and is widely used to create single page application where user interaction happen dinamically without reloading the page , react is based on component based architecture.which allow developer to build encapsulated component that manage there own state and can be composed to manage complex ui.
 
@@ -500,3 +500,51 @@ class lifeCycleDeo extends react.Component {
 
     ##  purpose of getsanpshotbeforeupdate()
     it is mainly used when you want to capture some information from the dom before it changes , so you can use this in componentdidupdate()
+
+    getSanpShotBeforeUpdate(prevProps,prevState){
+        console.log("getsnapshotbeforeupdate");
+        return window.scrollY;
+    }
+    componentDidUpdate(prevProps,prevState,snapShot){
+        console.log("component did update",snapshot);
+    }
+
+## component
+in react, a ui is built using individual , independence piece called component ,
+the user interface is built as tree of component that are managed and converted into native dom element by react 
+components allow us to build a single , reusable and isolated piece ui, which can be used to effciently render the user interface 
+
+in react there are two types of component :
+1. class component           2. functional component 
+
+class component are still suported , but in react , it is preferable to use function component to reduce boilerplate code .
+
+class component are created by creating a class the extends the React.Component classthe clas name is the name of component 
+the class component needs to override the render method using jsx to describe the markup of the component 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>React html</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin></script>
+<script type='text/babel">
+class Greeting extends React.Component{
+constructor(props){
+super(props);
+this.state={greeting:"Hello"};
+}
+render(){
+return (<h1>{this.state.greeting},{this.props.name})}
+    }
+    ReactDOM.render(<Greeting name="john"/>,document.getElelmentById("main"));
+</script>
+
+</body>
+</html>
+
+
