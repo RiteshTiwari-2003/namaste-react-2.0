@@ -724,3 +724,20 @@ in react use useEffect hookin order to enable our functional react component hav
 if an empty array passed as argument second argument then it runs only when component is added to screenor dom like component didmount .
 
 optionally from the function you can return a function to perform any cleanup necessary , like unregistering an event listner handler etc 
+### additional hooks 
+there are quite a number of hooks available for us to use other than useState and useEffect a few of those are :
+
+useContext ,
+useRef
+useReducer 
+
+1. useContext
+in react a context object is a spaical object managed by react which can be used to share data between sibling component 
+the useContext hook allow us to use data from context object in our component much more easily 
+
+2. useRef:
+when we re render the component all the variable declare inside it will reset 
+useRef allow us to create object that will persist even after component re render and will persist for full lifetime of the component 
+
+3. usereducer :
+usereducer can be thought of an advance version of useState, as it allow us to define initial state of an application as well as a reducer function 
