@@ -639,3 +639,41 @@ with hooks we can now create functional component with state and code as  lifecy
 as well as create our own hook to share non visual logic 
 
 at their core react hook are function provided by react to help it to know about apps internal state and lifecycle which can be used by functional component 
+
+React hooks
+react hooks are spacial function introduced in Reat 16.8 that allow you to use state and other react feature in functional component , which previously only possible in class componnet.
+
+## why hooks?
+before hooks if you wanted to use state , lifecycle method or side effects you had to use class component hooks allow you to write cleaner more usable logic inside functional componnet
+
+commanly used react hook 
+useState:
+add state to functional component 
+use effect:
+perform side effect (data fetching , dom update )repace lifecycle method like componentdidmount 
+
+useContext:
+accesses context value without wrtting a wrapper component.
+useRef
+return a mutable ref object to access dom element or persist value across render 
+use memo:
+memorize value to avoid unneccesary recalculation 
+usecallback :
+memorize function to prevent recreation on each render 
+useReducer :
+like useState, but better for complex state logic , smilar to reduc reducer logic 
+useLayoutEfffect:
+ike useEffect , but ires synchronously after dom update 
+
+### usesate and useeffect
+import React,{useState,useEffect} from "react";
+function Counter(){
+    const[count,setCount]=useState(0);
+    useEffect(()=>{
+        console.log(`count is now : ${count}`);//useeffect hooks 
+    },[count]);
+    return <div>
+    <p>you clicked {count} times</p>
+    <button onClick=()=>{setCount(count+1)}>Click me </button>
+    </div>
+}
