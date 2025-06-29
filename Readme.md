@@ -741,3 +741,37 @@ useRef allow us to create object that will persist even after component re rende
 
 3. usereducer :
 usereducer can be thought of an advance version of useState, as it allow us to define initial state of an application as well as a reducer function 
+
+### building custom hooks 
+we can  even create custom hooks which will allow us to perform certain task and integrate it with react 
+we can build these custom hooks by the help of already presented hooks like useState and useEffect.
+<!DOCTYPE html>
+<html>
+<head>
+<title>React html</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function useInterval({initial,increament}){
+        const [seconds,setSeconds]=React.useState(initial||0);
+        React.useEffect(()=>{
+        const timerId=setinterval(()=>{
+        setSeconds(s=>s+1)},increament||1000);
+        return ()=>clearInterval(timerId);
+        },[]);
+        return seconds
+        }
+    function App(){
+        const second=useInterval({initial:15,increament:100});
+        return <h1>{second}</h1>
+        
+
+    }
+    ReactDOM.render(<App/>,document.getElementByid("main"));
+</script>
+</body>
+</html>
