@@ -714,3 +714,13 @@ the state variable is is monitored by react which will cause a re render when it
     }
     ReactDOM.render(<App/>,document.getElementByid("main"));
 </script>
+
+## useEffect
+useEffect()
+hooks takes in a function and a optional array of variable which when changed will cause the effect function to be executed again 
+
+in react use useEffect hookin order to enable our functional react component have lifecycle method 
+
+if an empty array passed as argument second argument then it runs only when component is added to screenor dom like component didmount .
+
+optionally from the function you can return a function to perform any cleanup necessary , like unregistering an event listner handler etc 
