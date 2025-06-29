@@ -677,3 +677,40 @@ function Counter(){
     <button onClick=()=>{setCount(count+1)}>Click me </button>
     </div>
 }
+
+before hooks functional component only use for presentational component and also known as dumb component 
+but with hooks we have the ability to incorporate state and lifecycle in our functional component and reduce dpendency on class component .
+using hooks we can build our react app kore declarative and more effectivly 
+
+two of the mostcommon and useful hooks are useState and useEffect 
+
+### usestate() hooks 
+in react use useState hook in ordwer to enable our functional react component have internal state which is managed by react 
+
+the usestate function take some some internal state and return a state variable and a function to set that variable in future these are returned as array 
+
+the state variable is is monitored by react which will cause a re render when it chnages and it should only be changed by setter function returend by useState .
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>React html</title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+
+    function App(){
+        const [name,setName]=React.useState("");
+        return 
+        <div>
+        <input type="text" value={name} onChange={e=>setName(e.target.value)}/>
+        <h1>{name}</h1>
+        </div>
+
+    }
+    ReactDOM.render(<App/>,document.getElementByid("main"));
+</script>
