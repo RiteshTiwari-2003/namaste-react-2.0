@@ -775,3 +775,16 @@ we can build these custom hooks by the help of already presented hooks like useS
 </script>
 </body>
 </html>
+
+### react form 
+forms are essential part of html as they used to collect information from users 
+forms are importent because they are the most intutive way that a user can interact and enter data into our application 
+forms in html have several tags such as form input label button etc 
+each componennt in a form has its own attribute which modify how it looks and or how it works 
+
+### creating a form in react js 
+just like html , react js can also be used to create form which can which can capture user input 
+but with react js we can have forms that can manage thier own internal state and keep them in sync  with the ui 
+these form can handle validation error and as well as asynchronous form submission 
+thwre are two way to create or manage form component in react js:
+controlled components and uncontrolled component 
