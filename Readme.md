@@ -811,9 +811,13 @@ in a controlled component the state act as the single source of truth as the dat
     function Form(){
     const [userName,setUserName]=React.useState("");
     const [password,setPassword]=React.useState("");
-    return <form>
-        <input type="text"  placeholder="enter user name" value={userName}/><br/>
-        <input type="password" placeholder="enter password" value={password}/><br/>
+    function handleSubmit(e){
+    e=>e.preventDefault();
+    console.log(`Username:${username} password : ${password}`);
+    }
+    return <form onSubmit={handleSubmit}>
+        <input type="text"  placeholder="enter user name" value={userName} onChange={e=>setUserName(e.target.value)}/><br/>
+        <input type="password" placeholder="enter password" value={password} onChange={e=>setPassword(e.target.value)}/><br/>
         <input type="submit" value="Login"/>
     </form>;}
     ReactDOM.render(
@@ -822,3 +826,4 @@ in a controlled component the state act as the single source of truth as the dat
 </script>
 </body>
 </html>
+
