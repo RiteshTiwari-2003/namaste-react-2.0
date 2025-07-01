@@ -788,3 +788,37 @@ but with react js we can have forms that can manage thier own internal state and
 these form can handle validation error and as well as asynchronous form submission 
 thwre are two way to create or manage form component in react js:
 controlled components and uncontrolled component 
+
+## controlled component in react js form 
+in react js a controlled component is an element that contains the data that handled by the state inside the component
+in other words a component that containsdata that is managed or controlled by its internal state is called controlled component.
+a controleed component is espacially useful when building forms as each form element can contain its own internal state which can be managed by react 
+
+in a controlled component the state act as the single source of truth as the data flow is unidirectional so it can only be updated in one way 
+
+## controlled component demo
+<!DOCTYPE html>
+<html>
+<head>
+<title>controlled component </title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function Form(){
+    const [userName,setUserName]=React.useState("");
+    const [password,setPassword]=React.useState("");
+    return <form>
+        <input type="text"  placeholder="enter user name" value={userName}/><br/>
+        <input type="password" placeholder="enter password" value={password}/><br/>
+        <input type="submit" value="Login"/>
+    </form>;}
+    ReactDOM.render(
+    <Form/>,document.getElementById("main"));
+    
+</script>
+</body>
+</html>
