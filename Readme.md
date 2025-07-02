@@ -912,3 +912,14 @@ a single page application is an application , which uses a single html page for 
 in react to handle navigation between pages , which is caused by change in the current url, we use routing library .
 although there are many routing library available in react react torter is the most populer library 
 
+### react router advantage 
+1. easy :
+react router is quite populer because it offer the following 
+1. easy : react router is easy to lesrn as it has a very intutive api design so we can easily get started with it 
+2. declarative : just like reat js , react routwr is also declarative , so it is easier for us to describe how we want our route to be structured 
+3. fast : react router is very fast and performant as switching between routes in react app once they are loaded is blazing fast .
+4. transition : in react router animation and transition can be easily implemented when switching between different component 
+
+### component of react router dom 
+handling routing declaratively can be a bit difficult to solve so this react router dom has built in react component to be used in react code 
+
