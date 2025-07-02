@@ -905,3 +905,10 @@ for this purpose we need to display the error and indicate that the data entered
 also we need to remove the error once it is fixed , and the form need to be submitted to the user 
 
 there are many library available for form validation and error handling in react js , but using them make this very complicated 
+
+
+#### routing in react js in single page application 
+a single page application is an application , which uses a single html page for initial loading and after that all futher interaction managed by javasript these interaction include handling user event data chnages moving between pages for navigation 
+in react to handle navigation between pages , which is caused by change in the current url, we use routing library .
+although there are many routing library available in react react torter is the most populer library 
+
