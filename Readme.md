@@ -827,3 +827,37 @@ in a controlled component the state act as the single source of truth as the dat
 </body>
 </html>
 
+### uncontrolled component
+in react js , uncontrolled component act more like traditional html element 
+in uncontrolled component, we get access to the underlying dom element and query thier data instrad of maintaining state
+to get access to the underlying html coponent , we amke extensive use of refs, which allow us to access the dom element in react js 
+a;though uncontrolled component are easier to use and understand they should only be used to spacial cases where we need to manipulate the underlying dom element 
+<!DOCTYPE html>
+<html>
+<head>
+<title>controlled component </title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function Form(){
+    const usernameRef=React.createRef();
+    const passwordRef=React.createRef();
+    function handleSubmit(e){
+        e.preventDefault();
+        const result={username:usernameRef.current.value,password:passwordRef.current.value};
+        console.log(result);}
+    return <form onSubmit={handleSubmit}>
+        <input type="text"  placeholder="enter user name" value={userName} onChange={e=>setUserName(e.target.value)} ref={usernameRef}/><br/>
+        <input type="password" placeholder="enter password" value={password} onChange={e=>setPassword(e.target.value)} ref={passwordRef}/><br/>
+        <input type="submit" value="Login"/>
+    </form>;}
+    ReactDOM.render(
+    <Form/>,document.getElementById("main"));
+    
+</script>
+</body>
+</html>
