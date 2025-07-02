@@ -861,3 +861,47 @@ a;though uncontrolled component are easier to use and understand they should onl
 </script>
 </body>
 </html>
+
+### validation (form validation)
+in react since we can store our data as state in components, we can also have validation of the same data in the same component 
+when building a form , we can store validation rule and when form is submitted we can generate error message .
+so to validate the form , we need to keep trackof the data as state variable and generate and display error using using this state variable 
+we just need to make sure that the form are validated properly and if they are then we can submit them asynchronously and deal with the result 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>controlled component </title>
+</head>
+<body>
+<div id="main"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src='https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    function Form(){
+    const [userName,setUserName]=React.useState("");
+    const [password,setPassword]=React.useState("");
+    function handleSubmit(e){
+    e.preventDefault();
+    if(userName.trim()==="" || password.trim() ===""){
+    console.error("field can not be blank");
+    return;}
+    console.log({userName,password});}
+    return (
+    <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Enter username" value={userName} onChange={e=>setUserName(e.target.value)}/><br/>
+        <input type="password" placeholder="Enter username" value={password} onChange={e=>setPassword(e.target.value)}/><br/>
+        <input type="submit" value="Submit"/>
+    </form>);}
+    ReactDOM.render(<Form/>,document.getElementById("main"));
+</script>
+</body>
+</html>
+
+once we have validated our form , if we have some errors , then we need to give feedback to the userto fix those error 
+
+for this purpose we need to display the error and indicate that the data entered by the user is invalid and needs to be fixed 
+also we need to remove the error once it is fixed , and the form need to be submitted to the user 
+
+there are many library available for form validation and error handling in react js , but using them make this very complicated 
