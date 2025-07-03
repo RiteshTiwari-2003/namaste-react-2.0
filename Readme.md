@@ -1045,3 +1045,45 @@ export default App;
 then list come then below this home component come and below this that component come which url currently open like after slash(/contact)
 and now when i put exact then it come in right way like after list only that coponent come which url currently present like after slash 
 
+## in react router , links are used to navigate into single page application 
+in react react router support two types of link component NavLink and Link
+a <link> provide the decarative accessible navigation within our appication 
+<NavLink> is the spacial version of <Link> that will add styling attribute to the rendered element when it matches with the current url.
+
+## handling the 404 route
+in production build of single page application , we have to handle all possibe error we might come across 
+one of these error occur if we navigate to a page which does not exist 
+to avoide this , we  use switch and route component and make use of tha fact that switch renders the first route that matches --even if there are more than one match . Otherwiase it ooks through all routes looking for a match .
+so we have to rende rmultiple route component inside switch component with last route rendering a 404 page or component and aso not having any path prop passed , so it matches every route 
+
+App.jsx 
+import React from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+function App(){
+    return(
+        <Router>
+        <ul>
+        <li>
+        <Link to="/">Home </Link></li>
+        <li>
+        <Link to="/contact">Contact </Link></li>
+        <li>
+        <Link to="/services">Services</Link></li>
+        <li>
+        <Link to="our-service">Broken</Link></li>
+        </ul>
+        <Switch>
+        <Route path="/contact" component={Contact}/>
+        <Route path="/services" component={Services}/>
+        <Route path="/" exact component={Home}/>
+        <Route component={NotFound}/>
+        </Switch>
+        </Router>
+    );
+}
+const Home=()=><h1>Wlecome Home</h1>;
+const Contact=()=><h1>Contact us</h1>;
+const Services=()=><h1>Services</h1>;
+const NotFound=()=>(<div><h1>Page Not Found.</h1>
+<Link to="/">Home</Link></div>);
+export default App;
