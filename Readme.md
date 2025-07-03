@@ -923,3 +923,125 @@ react router is quite populer because it offer the following
 ### component of react router dom 
 handling routing declaratively can be a bit difficult to solve so this react router dom has built in react component to be used in react code 
 
+among several component in react router dom there are three type that are most importent ones to understand 
+1. Routers : every react router application should have a router component as the top level component .
+for web project react router dom provides <BrowserRouter> and <HashRouter> router
+a <browserRouter> uses regular url paths but needs the server to be configured correctly and also it is ony work in browser supporting html5.
+a <HashRouter> stores the current location in the hash portion of the url . so the url looks like https://example.com/#/our/page
+2. Route Matchers : there are two route matching component <Switch> and <Route> in which <Route> should be  the child coponent of <Switch> and when the <Switch> is rendered , it searches through its children <Route> elements to find the one whose path matches with the current url.when its find one , it rander that <Route> and ignore all other below it , because of it , we have to put <Route> with more specific paths before the less specific ones .
+3. navigation : and for navigation , we have a few specific component namely <Link/>,  <NavLink/>, <Redirect/>
+
+the <Link/> component creates links in our application whereever we render a <Link/>, an anchor <a/> will be render in our html document
+
+a <NavLink/> is a spaical type of <Link/> that can add a class or style to itself when its 'to' props matches the current location 
+any time that we want to force navigation , we can render a <redirect> and when a <Redirect> renders, it will navigate using 'to' props 
+
+### demo react riuter dom 
+first check in your system or project node js installed 
+node --version 
+npm --version 
+npx --version 
+and in terminal write npx create-react-app react-router 
+now install npm install react-router-dom 
+
+in app.jsx update thing like this 
+import React from "react";
+function App(){
+    return(
+        <h1>Hello</h1>
+    ) ;
+}
+
+export default App;
+and  update index.js file like this 
+import React from "react";
+import ReactDOM from "react-dom";
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+ReactDOM.render(
+    <React.StrictMode>
+    <App/>
+    </React.StrictMode>,document.getElementById("root")
+)
+
+now update App.jsx 
+import React from "react";
+import {BrowserRouter as Router} from "react-router-dom";
+function App(){
+    return(
+        <Router>
+        <ul>
+        <li>
+        <Link to="/">Home</Link>
+        </li>
+        <li>
+        <Link to="/contact">Contact</Link>
+        </li>
+        <li>
+        <Link to="/services">Services</Link>
+        </li>
+        </ul>
+        <Switch>
+        <Route path="/" component={Home}/>
+        <Route path="/contact" component={Contact}/>
+        <Route path="/services" component={Services}/>
+        </Switch>
+        </Router>
+    ) ;
+}
+const Home=()=><h1>Welcome Home.</h1>;
+const Contact=()=><h1>Contact</h1>;
+const Services=()=><h1>Services</h1>;
+export default App;
+
+but by above code when i come in localhost on ui then after clicking on every link only url changes but ui not display any changes 
+like when i cick on home link then come welcome home heading on ui and same when i click on contat and services then also same welcoe home come but i do not want this 
+o as i mention above during introductionary notes of routes than in routes in switc first search for more specific then less specific so move path="/"  line at the last like 
+<Switch>
+        
+        <Route path="/contact" component={Contact}/>
+        <Route path="/services" component={Services}/>
+        <Route path="/" component={Home}/>
+ </Switch>
+
+ or we can also write like this  
+ <Switch>
+        <Route path="/" exact component={Home}/>
+        <Route path="/contact" component={Contact}/>
+        <Route path="/services" component={Services}/>
+        
+ </Switch>
+
+ and if i write like this 
+ import React from "react";
+import {BrowserRouter as Router} from "react-router-dom";
+function App(){
+    return(
+        <Router>
+        <ul>
+        <li>
+        <Link to="/">Home</Link>
+        </li>
+        <li>
+        <Link to="/contact">Contact</Link>
+        </li>
+        <li>
+        <Link to="/services">Services</Link>
+        </li>
+        </ul>
+        
+        <Route path="/" component={Home}/>
+        <Route path="/contact" component={Contact}/>
+        <Route path="/services" component={Services}/>
+    
+        </Router>
+    ) ;
+}
+const Home=()=><h1>Welcome Home.</h1>;
+const Contact=()=><h1>Contact</h1>;
+const Services=()=><h1>Services</h1>;
+export default App;
+then list come then below this home component come and below this that component come which url currently open like after slash(/contact)
+and now when i put exact then it come in right way like after list only that coponent come which url currently present like after slash 
+
