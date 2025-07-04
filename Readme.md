@@ -1173,3 +1173,26 @@ function Post(){
     );
 }
 export default App;
+
+## state 
+for a component to be truly encapsulated and reusable in needs to be able to access and manipulate the some data
+in react component state is just some data that is managed internally by the component .
+sostate is managed by react so you dont have to keep track of changes made to state andupdating the ui accordingly 
+there are two kind of state in react :
+local state and global state 
+1. local state:
+local state is the data that is maintained by component internally 
+local state is internal to a component and should not be modified by external component 
+local state can be shared with children component via props .
+for propogating state changes to parent component we need to pass functions which can be called to change the state which cause rerender 
+
+2. global state :
+glovbal state is data that is globally in your applicqation , which means that it;s data needs to be shared across several component .
+since several component need access to the data it cannot be stored in any component and made available for all component .
+there are several solution availabe in react without the use of other external library for global state managemenbt 
+there are two way of dealing global state lifting up state and context.
+
+i. lifting up state :
+in react js , when we have to share some portion of state with multiple component we can use 
+a techniques called ligting up state 
+lifting up state is the process of moving the the shared portion of state to a common parent element 
