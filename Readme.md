@@ -1122,3 +1122,7 @@ function Users(){
 
 }
 export default App;
+### nested routes 
+in a single page react application , it offens happen that we need to deal with routes that are nested into other routes .
+to render nested route we need t get access to the current route and add few parameter at its end :
+to get access to the current url we need to use the useRouteMatch hook that return an object with a path and the current url , which can be used for nesting 
