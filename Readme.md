@@ -1126,3 +1126,50 @@ export default App;
 in a single page react application , it offens happen that we need to deal with routes that are nested into other routes .
 to render nested route we need t get access to the current route and add few parameter at its end :
 to get access to the current url we need to use the useRouteMatch hook that return an object with a path and the current url , which can be used for nesting 
+import React from "react";
+import {BrowserRouter as Router,Link,Switch,Route} from "react-router-dom";
+function App(){
+    return (
+        <Router>
+        <ul>
+        <li>
+        <Link to="/users/1">john</Link>
+        </li>
+        <li>
+        <Link to="/users/2">jane</Link>
+        </li>
+        </ul>
+        <Switch>
+        <Route path="/users/:userId" component={User}/>
+        </Switch>
+        </Router>
+    );
+}
+function User(){
+    const {userId}=useParams();
+    const {url,path}=useRouteMatch();
+    return(
+        <div>
+        <h1>User Id: {userId}</h1>
+        <ul>
+        <li>
+        <Link to={`${url}/posts/1`}>Post 1#</Link></li>
+        <li>
+        <Link to={`${url}/posts/2`}>Post 2#</Link>
+        </li>
+        </ul>
+        <Switch>
+        <Route path={`${url}/posts/:postId`} component={Post}/>
+        </Switch>
+        </div>
+
+    );
+}
+function Post(){
+    cosnt {userId,postId}=useParams();
+    return (
+        <h2>
+        Post is :{postId} by user Id: {userId}</h2>
+    );
+}
+export default App;
