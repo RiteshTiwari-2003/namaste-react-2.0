@@ -1087,3 +1087,38 @@ const Services=()=><h1>Services</h1>;
 const NotFound=()=>(<div><h1>Page Not Found.</h1>
 <Link to="/">Home</Link></div>);
 export default App;
+
+### url parameters 
+a url parameter is placeholder in your ur that needs to be replaced by the value 
+a url parameter int he url in react router begin with a colon followed by and identifier representing that parameter eg /user/:id
+a url is not restricted to one parameter as it can have multiple parameter , we need to make sure tat they all are distinct and necessary, to access the url parameter 's value we use the useParams hook that return a javascript object with a key as the parameter name and value as the parameter value 
+
+import React from "react";
+import {BrowserRouter as Router, Route, Switch,useParams}  from "react-router-dom";
+function App(){
+    return(
+        <Router>
+        <ul>
+        <li>
+        <Link to="/">Home</link>
+        </li>
+        <li>
+        <Link to="/users/john/1">Users</link>
+        </li>
+        </ul>
+        <Switch>
+        <Route path="/" exact component={Home}/>
+        <Route path="/users/:name/:id" component={Users}/>
+        </Switch>
+        </Router>
+    );
+}
+const Home=()=><h1>Home</h1>;
+function Users(){
+    const {name,id}=useParams();
+    retuen (
+        <h1>Hello {name} user id: {id}</h1>
+    )
+
+}
+export default App;
