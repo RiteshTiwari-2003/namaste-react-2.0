@@ -1223,3 +1223,18 @@ function Footer(props){
     return <h1>Logged in user:{user.name}</h1>
 }
 export default App;
+
+Lifting up state is good first step but it leads to some problems when used 
+with state that nedds to be shared with child component nested deep within the component tree
+it is also called props drilling 
+when state needs to be shared with component that are deeply nested they need to passed through many component through props 
+in order to avoid this satuation we can use context in react which is a built in solution 
+in react for exact same issue 
+
+to create react context we use createContext function from react , however to use a react context we need to understand two part of react context mainly provider and consumer 
+
+# context provider 
+when we create a context it contains two react component provider and consumer 
+provider needs to be parent compoonent to all the component that need to use data within a context 
+a provider basic job is to provide value to any child component that explicitly ask for it 
+provider can contains any kind of value including objects that contain data and function to manipulate the data 
