@@ -1196,3 +1196,29 @@ i. lifting up state :
 in react js , when we have to share some portion of state with multiple component we can use 
 a techniques called ligting up state 
 lifting up state is the process of moving the the shared portion of state to a common parent element 
+
+ti lift up the state we need to figure out the state that needs to be shared and components to be shared among 
+this state then needs to be moved to the lowest common ancestor component and passed down to needed component as props 
+
+## demo : lift up state 
+first crete a react app using npx create-react-app react-context-demo
+
+in App.jsx 
+iport React from "react";
+function App(){
+    return(
+        <div>
+        <Header/>
+        <Footer/>
+        </div>
+    );
+}
+function Header(){
+    const [user,setUser]=react.useState({name:"John",age:33});
+    return <h1>Username:{user.name},Age: {user.age}</h1>
+}
+function Footer(){
+    const [user,setUser]=react.useState({name:"John",age:34});
+    return <h1>Logged in user:{user.name}</h1>
+}
+export default App;
