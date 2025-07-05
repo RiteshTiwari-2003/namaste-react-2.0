@@ -1206,19 +1206,20 @@ first crete a react app using npx create-react-app react-context-demo
 in App.jsx 
 iport React from "react";
 function App(){
+    const [user,setUser]=React.useState({name:"John",age:33});
     return(
         <div>
-        <Header/>
-        <Footer/>
+        <Header user={user}/>
+        <Footer user={user}/>
         </div>
     );
 }
-function Header(){
-    const [user,setUser]=react.useState({name:"John",age:33});
+function Header(props){
+    const user=props.user
     return <h1>Username:{user.name},Age: {user.age}</h1>
 }
-function Footer(){
-    const [user,setUser]=react.useState({name:"John",age:34});
+function Footer(props){
+    const user=props.user;
     return <h1>Logged in user:{user.name}</h1>
 }
 export default App;
