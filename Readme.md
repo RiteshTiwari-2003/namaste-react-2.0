@@ -1360,3 +1360,54 @@ function ThemedButton()[
     )
 ]
 export default App;
+
+#### what is the redux?
+as we have already discussed , react support two kind of state global state and local state 
+in react there are two way of dealing with global state lifting up state and context 
+these are great for small and mid size application 
+but in application that has lot of state that needs to be shared and manipulated by multiple component , these solution really complicate the code and are even difficut to implement .
+ 
+
+ redux is a javascript library that solve this problem , it maintain the state of entire application in a single immutable state tree (JS object), which can not be changed directly 
+
+ why redux ?
+ since state management gets messy as the app get complex , we need a state management tool 
+ like redux that makes it easier to maintain these state across several component in a consistent manner 
+
+ react js allow us to build our application user interface by building component that manages their own state internally without any external tool or library 
+
+ in an application with fewer component s this approach work really well and allow developer to build small isolated user interace components
+ but as the appicatins size grow managing states shared across component become a really deficult task 
+
+ as data needs to be shared among component , it might be confusing to actually know that where a state should be lived 
+
+ ### redux prencipe 
+ so there are three fundamental principle which redux follow 
+ 1. sigle source of truth : it means that there is only one place which represents global state of your application and our application ui will re render when this state chnage , this make your application more predictable 
+ 2. state is read only : in redux we can not modify or mytate state directly 
+ 3. changes are made with pure function : in redux we use reducer which are pure function that take current state and an action and return next state , a pure function is a function that given same input , will always return the same output and produce no effect .
+
+ ## redux concept 
+ there is some importent redux concept that we need to be faimiier with before we can continue 
+ 1. actions : an action is a plain javascript object that has a type field , itcan thought of as an event that describe something that happended in application , for example when
+ a todo is added in a todo list 
+ the type field should be a string that gives the action a descriptive name . like "todos/todoAdded" , it is usually written created as "Domain/eventName'
+ an action object can have other field with additional information about what happen , by conventio , we put that information ina field called payload 
+
+ 2. action creator:
+ some action object can be little bit complicated and creating them by hand all the time can be a little  combersome and error prome.
+ which is why we use some function to create our action that take a few input as function argument and return and action with type and payload , these function are called action creater we typically use this so we dont have to write the action object by hand every time 
+
+ 3. reducewr : as in redux state is read only so to make a changes to state such as adding or deleting items we need to copy the state , manipulate it and and set the manipulated state as new state 
+ action object describe the change to the statew and these changes are actually performed in a function called reducer 
+ a reducer function takes input as current state and action as argument copies the state makes changes to the copy based on the action ten return new state .
+
+ 4. store : in redux  a store is a object thhat store the entire global state in application that uses redux 
+ a store is created by passing in a single and multipe reducer function and has a method called getState that return the value of current state 
+
+ as metioned store is the place where all the global state are  stored and it is a single source of truth that redux use .
+
+ 5. dispatch : a store in redux has a method on it called disptch which is called with an action object when we wish to update the current state value
+ when the dispatch method called with the action the store runs the reducer function with current state and action and update the current state to be the dstate returned by reducer 
+
+ 
