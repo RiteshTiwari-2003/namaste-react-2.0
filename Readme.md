@@ -1309,3 +1309,54 @@ function Pannel(){
 
 }
 export default App;
+
+## useContext hook
+
+as using consumer component in react requires you to need use complicate pattern render props we can also use useContext hook 
+in useContext hook we do not need to use any other component all we have to do is is pass the context as an argument to the hook 
+with usecontecxt hoomk you can simply access value by calling the method and without using render rpops pattern 
+it works the same way as consumer context by getting the value from a matching provider component that is the current component parent 
+
+### hands on : useContext hook 
+in App.jsx
+import React from "react";
+const themes ={
+    light:{
+        backgroundColor:"#FFF",
+        color:"#000",
+    },
+    dark:{
+        backgroundColor:"#000",
+        color:"#FFF"
+    }
+};
+const ThemeContext=react.createContext({theme:themes.light});
+function App(){
+    const [theme,setTheme]=React.useState(themes.light);
+    const toggleTheme=()=>setTheme(t=>t===themes.light?themes.dark:themes.light);
+    return(
+        <ThemeContext.Provider value={{theme,toggleTheme}}>
+        <Toolbar/>
+        <Panel/>
+        </ThemeContext.Provider>
+    );
+}
+function Toolbar(){
+    return <ThemedButton/>;
+}
+function panel(){
+    const {theme}=React.useContext(ThemeContext)
+    return(
+        <div style={theme}>
+        <p>Notice !!</p>
+        </div>
+    )
+}
+function ThemedButton()[
+    const {toggleTheme}=React.useContext(ThemeContext)
+    return (
+        <button onClick={toggleTheme}>Toggle Theme
+        </button>
+    )
+]
+export default App;
