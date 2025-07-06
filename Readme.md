@@ -1238,3 +1238,74 @@ when we create a context it contains two react component provider and consumer
 provider needs to be parent compoonent to all the component that need to use data within a context 
 a provider basic job is to provide value to any child component that explicitly ask for it 
 provider can contains any kind of value including objects that contain data and function to manipulate the data 
+
+## consumers 
+consumers are the other part of context rather than provider so consumer are the counterpart of the provider component in context
+consumers are the child component or descendent of the provider that have access to the value the provider hold 
+consumer uses render prop pattern , in which we have to pass the function which has access the value in the context and return a react component 
+
+consumer component walk up the parent component chain and find the nearest matching provider to access value from 
+
+# deo on context 
+App.jsx 
+import React fro "react";
+const themes={
+    light:{
+        backgroundColor:"#fff",
+        color:"#000",
+    },
+    dark:{
+        backgroundColor:"#000",
+        color:"#fff",
+    }
+};
+const ThemeContent=React.createContext(themes.light);
+function App(){
+    const [theme,setTheme]=React.useState(themes.light);
+    const toggleTheme=()=> setTheme(t=>t===themes.light?themes.dark:themes.light);
+    return (
+        <ThemeContent.Provider value={{theme,toggleTheme}}>
+        <Toolbar/>
+        <Panel/>
+        </ThemeContent.Provider>
+    );
+}
+function Toolbar(){
+    return <ThemedButton/>
+}
+function ThemedButton(){
+    return(
+        <ThemeContext.Consumer>
+        {
+            function ThemeSwitcher(values){
+                const toggleTheme=values.toggleTheme;
+                return (
+                    <button onClick={toggleTheme}>Toggle Theme</button>
+                )
+
+
+            }
+        }
+        </ThemeContent.Consumer>
+    )
+}
+function Pannel(){
+    return(
+        <ThemeContext.Consumer>
+        {
+            function ThemeSwitcher(values){
+                const theme=values.theme;
+                return (
+                    <div style={theme}>
+                    <p>Notice!</p>
+                    </div>
+                )
+
+
+            }
+        }
+        </ThemeContent.Consumer>
+    );
+
+}
+export default App;
