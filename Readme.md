@@ -1410,4 +1410,61 @@ but in application that has lot of state that needs to be shared and manipulated
  5. dispatch : a store in redux has a method on it called disptch which is called with an action object when we wish to update the current state value
  when the dispatch method called with the action the store runs the reducer function with current state and action and update the current state to be the dstate returned by reducer 
 
+ ### thing of dispatching action as trigger an event in the application 
+ something happened and we want to store to know about it 
+
+ 6 . selector: 
+ as the state in our application grows , it canbecome increasingly very difficult to extract just the information you want out of it .
+ to deal with this we use selector thre are just plain functions that receive the state as an argument and extract specific piece of information from the current state 
+ as an application grow bigger , it avoid repeating logic as an different part of the app need to read the same data .
+
+ ### redux demo 
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>Redux</title>
+ </head>
+ <body>
+ <h1>Open Console</h1>
+ <script src="https://unpkg.com/redux/dist/redux.js">
+    </script>
+    <script>
+        function countReducer(state=0,action){
+            switch(action.type){
+                case "INCREMENT":return  state + 1;
+                case "DECREMENT":return state -1;
+                /*case "INCREMENT": return state + action.payload;
+                case "DECREMENT":return state - action.payload;*/
+                default: return state;
+            }
+        }
+        const store=Redux.createStore(countReducer);
+        store.subscribe(()=>{
+            console.log(store.getState());
+        })
+        store.dispatch({type:"INCREMENT"});
+        store.dispatch({type:"INCREMENT"});
+        store.dispatch({type:"INCREMENT"});
+        store.dispatch({type:"DECREMENT"});
+        store.dispatch({type:"DECREMENT"});
+        store.dispatch({type:"DECREMENT"});
+        /* are also you can write like this  
+        const increment=(payload=1)=>{
+        {type:"INCREMENT",payload}}
+        const decrement=(payload=1)=>{         // by default payload value is 1
+        {type:"DECREMENT",payload}}
+        store.dispatch(increment()); but if we give sroe.dispatch(increment(15)) then output would be 15 16 17 16 15 14 
+        store.dispatch(increment());
+        store.dispatch(increment());
+        store.dispatch(decrement());
+        store.dispatch(decrement());
+        store.dispatch(decrement());
+        */
+        </script>
+ </body>
+ </html>
+
+ ### since redux is a javascript library for state management , it can be used with any application like react and angular 
+ for react to work well with redux we need to use another package called react-redux 
+ it is package created anf maintained by redux team and kept up to date with the latest api from redux and react , itcreate a wrapper component that amanages the store interaction logic for you so you dont have to write it yourself .
  
