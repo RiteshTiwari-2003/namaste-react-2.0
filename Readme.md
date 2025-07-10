@@ -1468,3 +1468,61 @@ but in application that has lot of state that needs to be shared and manipulated
  for react to work well with redux we need to use another package called react-redux 
  it is package created anf maintained by redux team and kept up to date with the latest api from redux and react , itcreate a wrapper component that amanages the store interaction logic for you so you dont have to write it yourself .
  
+ npm install redux react-redux 
+ in App.jsx 
+ import React from "react";
+
+ function App(){
+    return (
+        <h1>Hello</h1>
+    );
+ }
+ export default App;
+ make a component folder in src folder where create Counter.jsx file 
+ in src also make one more file redux.js 
+ function countReducer(state =0 ,action){
+    switch(action.type){
+        case "INCREMENT": return state +1;
+        case "DECREMENT": return state -1;
+        default: return state;
+    }
+
+ }
+export const store = createStore(countReducer);
+si in index.js 
+import {Provider} from "react-redux";
+import App from './App';
+import {store} from "./redux";
+ReactDOM.render(
+    <React.StrictMode>
+    <Provider store={store}
+    <App/>
+    </Provider>
+    <React.StrictMode/>
+    , document.getElementById("root");
+    )
+
+now i have ome into component counter.jsx
+import react from "react";
+function Counter({onIncrement, count, onDecrement}){
+    return (
+        <div>
+        <button onClick={onIncrement}>+</button>
+        <span>{count}</span>
+        <button onClick={onDecrement}>-</button>
+</div>
+
+    );
+}
+const mapStateToProps=(state)=>({count:state});
+const mapDispatchToProps = (dispatch)=>({
+    onIncrement:()=>{
+        dispatch({type:"INCREMENT"});
+    }
+    onDecrement:()=>{
+        dispatch({type:"DECREMENT"});
+    }
+});
+export default connect(mapStateToProps,mapDispatchToProps)(Counter);
+in App.jsx ypdate <App/>
+line with this <Counter/>
