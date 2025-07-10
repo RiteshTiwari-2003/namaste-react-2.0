@@ -1524,5 +1524,5 @@ const mapDispatchToProps = (dispatch)=>({
     }
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Counter);
-in App.jsx ypdate <App/>
+in App.jsx update  <h1>HEllo</h1>
 line with this <Counter/>
