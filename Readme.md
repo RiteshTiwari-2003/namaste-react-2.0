@@ -1526,3 +1526,15 @@ const mapDispatchToProps = (dispatch)=>({
 export default connect(mapStateToProps,mapDispatchToProps)(Counter);
 in App.jsx update  <h1>HEllo</h1>
 line with this <Counter/>
+
+## react redux and toolkit 
+action 
+reducer 
+slice 
+store 
+state 
+
+when i click on handleClick() function then then action dispatch hota hai store ke pas jata hai , store reducer function call karti hai uske according logic execute state update according to that logic and after this ai is upate
+ya we can say above thing in more good manner also that logic execute hone ke baad hum gaye store pe vaha state update hua and state update hone ke baad ui update hua 
+
+
