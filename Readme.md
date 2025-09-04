@@ -1536,5 +1536,12 @@ state
 
 when i click on handleClick() function then then action dispatch hota hai store ke pas jata hai , store reducer function call karti hai uske according logic execute state update according to that logic and after this ai is upate
 ya we can say above thing in more good manner also that logic execute hone ke baad hum gaye store pe vaha state update hua and state update hone ke baad ui update hua 
+action is nothing just an event or you can say action is event + some additional info like payload like action event name is increment and payload is or payload value is 5 then whenever i click on button increment of 5 happen 
+
+slice : har ak feature ke state ko maintain karne ka logic slice me likha rahta hai and sare reducer function aapne yaha likhe hote hai 
+reducer ; jaha pe sare logic likhe hote hai state update karne ka 
+store : store kya hota hai jaise single source of truth hota hai jiske ander state store hota hai 
+state is nothing just fancy name of data
+
 
 
